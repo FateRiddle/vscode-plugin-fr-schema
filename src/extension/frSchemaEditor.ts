@@ -18,6 +18,8 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
 
   private static readonly viewType = 'frSchema.editor';
 
+  private innerUpdateCount = 2;
+
   private static readonly isDev = false;
 
   constructor(
@@ -46,7 +48,14 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
 
     // Hook up event handlers so that we can synchronize the webview with the text document.
     const changeDocumentSubscription = vscode.workspace.onDidChangeTextDocument((e) => {
-      if (e.document.uri.toString() === document.uri.toString()) {
+      if (e.document.uri.toString() !== document.uri.toString()) {
+        return
+      }
+      if (this.innerUpdateCount < 2) {
+        this.innerUpdateCount += 1
+        return
+      }
+      if (this.innerUpdateCount >= 2 && e.contentChanges.length) {
         updateWebview();
       }
     });
@@ -63,6 +72,7 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
           updateWebview();
           break;
         case 'update':
+          this.innerUpdateCount = 0
           this.updateTextDocument(document, e.body);
           break;
         case 'warning':

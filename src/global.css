@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+.left-layout::-webkit-scrollbar {
+  display: none;
+}
+
 .dnd-container > .field-wrapper {
   height: 98% !important;
 }
