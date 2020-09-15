@@ -2,7 +2,7 @@
   "name": "vscode-plugin-fr-schema",
   "displayName": "FormRender generator",
   "description": "form-render 的表单设计器",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "F-loat",
   "engines": {
     "vscode": "^1.46.0"
@@ -74,12 +74,12 @@
     "compile": "tsc -p ./src/extension",
     "watch": "tsc -w -p ./src/extension",
     "lint": "eslint src/**/*.{ts,tsx} --fix",
-    "vscode:prepublish": "npm run lint && npm run compile && npm run build"
+    "vscode:prepublish": "npm run lint && npm run build"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "ahooks": "^2.6.0",
-    "antd": "^3.19.5",
+    "antd": "^4.6.4",
     "fr-generator": "0.5.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
