@@ -15,6 +15,10 @@
   - schema/*.json
   - schemas/*.json
 
+## 截图
+
+![overview](./screenshot/overview.png)
+
 ## 开发
 
 * 克隆项目
