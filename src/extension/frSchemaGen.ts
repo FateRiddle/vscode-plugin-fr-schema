@@ -21,7 +21,12 @@ export class frSchemaGenProvider {
       const document = await vscode.workspace.openTextDocument(uri);
       const editor = await vscode.window.showTextDocument(document);
       const val = JSON.parse(document.getText());
-      const schema = frSchemaGenProvider.recurseTree({ val });
+      const schema = {
+        schema: frSchemaGenProvider.recurseTree({ val }),
+        displayType: 'row',
+        showDescIcon: true,
+        labelWidth: 120
+      };
 
       editor.edit((editBuilder) => {
         editBuilder.replace(
@@ -37,9 +42,7 @@ export class frSchemaGenProvider {
   public static recurseTree({ key, val = null }: { key?: string; val: any }) {
     interface Item {
       type?: string;
-      ui?: {
-        label: string | undefined;
-      };
+      title?: string | undefined;
       items?: any;
       properties?: any;
     }
@@ -56,12 +59,12 @@ export class frSchemaGenProvider {
       case 'string':
       case 'boolean':
         item.type = type;
-        item.ui = { label: key };
+        item.title = key;
         break;
       case 'array':
         item.type = type;
         item.items = frSchemaGenProvider.recurseTree({ key, val: val[0] });
-        item.ui = { label: key };
+        item.title = key;
         break;
       case 'object': {
         item.type = type;
@@ -70,7 +73,7 @@ export class frSchemaGenProvider {
           const result = frSchemaGenProvider.recurseTree({ key: subkey, val: subval });
           item.properties = { ...item.properties, [subkey]: result };
         });
-        if (key) item.ui = { label: key };
+        if (key) item.title = key;
         break;
       }
       default: {
