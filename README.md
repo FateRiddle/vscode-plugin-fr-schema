@@ -6,7 +6,9 @@
 
 ## 使用
 
-* 点击 JSON 文件右上角工具栏图标切换编辑模式
+* 可视化编辑表单配置
+
+点击 JSON 文件右上角工具栏图标切换编辑模式
 
 > 默认对以下文件生效
 
@@ -14,6 +16,10 @@
   - *.schema.json
   - schema/*.json
   - schemas/*.json
+
+* 表单数据转换为表单配置
+
+打开 data.json 后按下组合键 `Ctrl+Shift+P`，输入 `formrender` 后选择 `Generate formRender schema from data` 即可自动生成相应的 json schema
 
 ## 截图
 
