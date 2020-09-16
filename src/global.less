@@ -4,7 +4,7 @@ html, body, #root {
 
 body {
   margin: 0;
-  color: var(--vscode-editorCursor-background);
+  color: var(--vscode-input-foreground);
   background-color: var(--vscode-editor-background);
 }
 
@@ -14,19 +14,11 @@ body {
 
 .left-element,
 .ant-btn,
-.ant-input,
-.ant-input-number,
-.ant-select,
-.ant-select-selector,
-.ant-picker,
 .field-wrapper > div[draggable],
 .fr-field + div:not([class]),
-.ant-tabs-nav:before,
-.ant-input-group-addon,
-.ant-input-affix-wrapper,
-.ant-picker-suffix {
-  color: var(--vscode-checkbox-foreground) !important;
-  border-color: var(--vscode-button-secondaryBackground) !important;
+.ant-tabs-nav:before {
+  color: var(--vscode-button-foreground) !important;
+  border-color: var(--vscode-inputOption-activeBorder) !important;
   background-color: var(--vscode-button-background) !important;
 }
 
@@ -55,19 +47,27 @@ body {
 
 .fr-wrapper,
 .field-wrapper,
+.ant-input,
+.ant-input-number,
+.ant-select,
+.ant-select-selector,
+.ant-picker,
+.ant-input-group-addon,
+.ant-input-affix-wrapper,
+.ant-picker-suffix,
 .ant-radio-wrapper,
 .ant-checkbox-wrapper,
 .ant-select-multiple .ant-select-selection-item,
 .ant-select-multiple .ant-select-selection-item-remove,
 .fr-wrapper .bg-white,
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: var(--vscode-editorCursor-background) !important;
-  background-color: var(--vscode-editor-background) !important;
+  color: var(--vscode-input-foreground) !important;
+  background-color: var(--vscode-input-background) !important;
   outline: var(--vscode-button-background) !important;
 }
 
 .fr-label-title {
-  color: var(--vscode-editorCursor-background) !important;
+  color: var(--vscode-input-foreground) !important;
 }
 
 .dnd-container > .field-wrapper {
