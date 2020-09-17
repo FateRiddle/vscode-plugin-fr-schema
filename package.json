@@ -48,7 +48,7 @@
     "customEditors": [
       {
         "viewType": "frSchema.editor",
-        "displayName": "NcFrom Schema Editor",
+        "displayName": "FormRender Schema Editor",
         "selector": [
           {
             "filenamePattern": "*.json"
