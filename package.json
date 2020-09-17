@@ -11,6 +11,7 @@
     "Other"
   ],
   "activationEvents": [
+    "onCommand:frSchema.p2s",
     "onCommand:frSchema.gen",
     "onCommand:frSchema.edit",
     "onCustomEditor:frSchema.editor"
@@ -28,6 +29,10 @@
         "title": "Generate formRender schema from data"
       },
       {
+        "command": "frSchema.p2s",
+        "title": "Generate formRender schema from React PropTypes"
+      },
+      {
         "command": "frSchema.edit",
         "title": "Open with formRender schema editor",
         "icon": {
@@ -39,7 +44,7 @@
     "menus": {
       "editor/title": [
         {
-          "when": "resourceFilename =~ /\\.(fr|schema)\\.json/ || resource =~ /\/schemas?\/.*\\.json/",
+          "when": "resourceFilename =~ /\\.?(fr|schema)\\.json/ || resource =~ //schemas?/.*\\.json/",
           "command": "frSchema.edit",
           "group": "navigation"
         }
@@ -80,6 +85,7 @@
     "ahooks": "^2.6.0",
     "antd": "^4.6.4",
     "fr-generator": "0.5.1",
+    "proptypes-to-json-schema": "^0.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

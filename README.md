@@ -6,6 +6,8 @@
 
 ## 使用
 
+> 可通过 examples 目录下的文件进行测试
+
 * 可视化编辑表单配置
   
   点击 JSON 文件右上角工具栏图标切换编辑模式，默认对以下文件生效
@@ -20,6 +22,10 @@
 * 表单数据转换为表单配置
 
   打开 data.json 后按下组合键 `Ctrl+Shift+P`，输入 `formRender` 后选择 `Generate formRender schema from data` 即可自动生成相应的 json schema
+
+* React PropTypes 换为表单配置 ([proptypes-to-json-schema](https://github.com/form-render/proptypes-to-json-schema))
+
+  打开 page.jsx 后按下组合键 `Ctrl+Shift+P`，输入 `formRender` 后选择 `Generate formRender schema from React PropTypes` 即可自动生成相应的 json schema
 
 ## 截图
 
