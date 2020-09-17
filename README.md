@@ -15,6 +15,8 @@
   - schema/*.json
   - schemas/*.json
 
+  或右键任意 JSON 文件，点击 `Open With...` 后选择 `FormRender Schema Editor`
+
 * 表单数据转换为表单配置
 
   打开 data.json 后按下组合键 `Ctrl+Shift+P`，输入 `formRender` 后选择 `Generate formRender schema from data` 即可自动生成相应的 json schema

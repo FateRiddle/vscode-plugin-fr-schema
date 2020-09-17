@@ -39,7 +39,7 @@
     "menus": {
       "editor/title": [
         {
-          "when": "resourceLangId == json",
+          "when": "resourceFilename =~ /\\.(fr|schema)\\.json/ || resource =~ /\/schemas?\/.*\\.json/",
           "command": "frSchema.edit",
           "group": "navigation"
         }
