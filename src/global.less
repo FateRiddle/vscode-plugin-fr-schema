@@ -1,17 +1,50 @@
+// 布局类
 html, body, #root {
   height: 100%;
+  margin: 0;
 }
 
-body {
-  margin: 0;
-  color: var(--vscode-input-foreground);
-  background-color: var(--vscode-editor-background);
+.dnd-container > .field-wrapper {
+  height: 98% !important;
+}
+
+.dnd-container > .field-wrapper > .fr-field {
+  margin-bottom: 0;
+}
+
+.ant-btn.mr2:nth-child(2),
+.ant-btn.mr2:nth-child(3),
+.ant-btn.mr2:nth-child(4) {
+  display: none;
+}
+
+// 容器类
+body,
+.fr-wrapper,
+.fr-wrapper .bg-white,
+.field-wrapper,
+.ant-input-group-addon,
+.ant-input-affix-wrapper,
+.ant-picker-suffix {
+  color: var(--vscode-input-foreground) !important;
+  background-color: var(--vscode-editor-background) !important;
+  outline: var(--vscode-button-background) !important;
+}
+
+.mid-layout,
+.fr-wrapper .b--black-20 {
+  border-color: var(--vscode-button-secondaryBackground) !important;
+}
+
+.fr-label-title {
+  color: var(--vscode-input-foreground) !important;
 }
 
 .left-layout::-webkit-scrollbar {
   display: none;
 }
 
+// 按钮类
 .left-element,
 .ant-btn,
 .field-wrapper > div[draggable],
@@ -27,59 +60,34 @@ body {
   background-color: var(--vscode-button-hoverBackground) !important;
 }
 
-.ant-tabs-ink-bar  {
-  background-color: var(--vscode-checkbox-foreground) !important;
-}
-
-.mid-layout,
-.fr-wrapper .b--black-20 {
-  border-color: var(--vscode-button-secondaryBackground) !important;
-}
-
-.ant-tabs {
-  color: var(--vscode-input-foreground) !important;
-}
-
-.ant-tabs-tab:hover,
-.ant-tabs-tab:active {
-  color: var(--vscode-editorHoverWidget-foreground) !important;
-}
-
-.fr-wrapper,
-.field-wrapper,
+// 组件类
 .ant-input,
 .ant-input-number,
 .ant-select,
 .ant-select-selector,
 .ant-picker,
-.ant-input-group-addon,
-.ant-input-affix-wrapper,
-.ant-picker-suffix,
-.ant-radio-wrapper,
-.ant-checkbox-wrapper,
 .ant-select-multiple .ant-select-selection-item,
 .ant-select-multiple .ant-select-selection-item-remove,
-.fr-wrapper .bg-white,
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: var(--vscode-input-foreground) !important;
   background-color: var(--vscode-input-background) !important;
   outline: var(--vscode-button-background) !important;
 }
 
-.fr-label-title {
+.ant-radio-wrapper,
+.ant-checkbox-wrapper {
   color: var(--vscode-input-foreground) !important;
 }
 
-.dnd-container > .field-wrapper {
-  height: 98% !important;
+.ant-tabs {
+  color: var(--vscode-input-foreground) !important;
 }
 
-.dnd-container > .field-wrapper > .fr-field {
-  margin-bottom: 0;
+.ant-tabs-ink-bar  {
+  background-color: var(--vscode-checkbox-foreground) !important;
 }
 
-.ant-btn.mr2:nth-child(2),
-.ant-btn.mr2:nth-child(3),
-.ant-btn.mr2:nth-child(4) {
-  display: none;
+.ant-tabs-tab:hover,
+.ant-tabs-tab:active {
+  color: var(--vscode-editorHoverWidget-foreground) !important;
 }
