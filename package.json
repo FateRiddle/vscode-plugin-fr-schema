@@ -44,7 +44,7 @@
     "menus": {
       "editor/title": [
         {
-          "when": "resourceFilename =~ /\\.?(fr|schema)\\.json/ || resource =~ //schemas?/.*\\.json/",
+          "when": "resourceLangId == json",
           "command": "frSchema.edit",
           "group": "navigation"
         }
@@ -58,7 +58,8 @@
           {
             "filenamePattern": "*.json"
           }
-        ]
+        ],
+        "priority": "option"
       }
     ],
     "jsonValidation": [
