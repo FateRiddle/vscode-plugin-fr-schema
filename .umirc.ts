@@ -9,6 +9,10 @@ const config: IConfig =  {
     htmlSuffix: true,
     dynamicRoot: true,
   },
+  devServer: {
+    writeToDisk: true
+  },
+  devtool: false,
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {

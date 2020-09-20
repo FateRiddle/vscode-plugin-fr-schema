@@ -20,8 +20,6 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
 
   private innerUpdateCount = 2;
 
-  private static readonly isDev = false;
-
   constructor(
     private readonly context: vscode.ExtensionContext,
   ) { }
@@ -91,10 +89,9 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
    * Get the static html used for the editor webviews.
    */
   private getHtmlForWebview(webview: vscode.Webview): string {
-    const baseUri = frSchemaEditorProvider.isDev
-      ? 'http://localhost:8000'
-      : `${webview.asWebviewUri(vscode.Uri.file(this.context.extensionPath))}/out/webview`;
+    const baseUri = `${webview.asWebviewUri(vscode.Uri.file(this.context.extensionPath))}/out/webview`;
 
+    console.log(baseUri)
     return `
       <!DOCTYPE html>
       <html>
@@ -102,17 +99,7 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
           <link rel="stylesheet" href="${baseUri}/umi.css">
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-          <title>app</title>
-          <style>
-            .dev-tip {
-              position: fixed;
-              right: 0;
-              bottom: 0;
-              color: var(--vscode-editor-background);
-              background-color: var(--vscode-editor-foreground);
-              padding: 4px 8px;
-            }
-          </style>
+          <title>FormRender generator</title>
           <script>
             window.routerBase = location.pathname.split('/').slice(0, -1).concat('').join('/');
             window.publicPath = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + window.routerBase;
@@ -120,7 +107,6 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
         </head>
         <body>
           <div id="root"></div>
-          ${frSchemaEditorProvider.isDev ? '<div class=dev-tip>DEV</div>' : ''}
           <script src="${baseUri}/umi.js"></script>
         </body>
       </html>`;
