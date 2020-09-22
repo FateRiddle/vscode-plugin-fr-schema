@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import Generator from 'fr-generator';
-import { useKeyPress } from 'ahooks';
 
 const vscode = acquireVsCodeApi();
 
@@ -8,10 +7,10 @@ const App = () => {
   const generator = useRef(null);
   const [templates, setTemplates] = useState([]);
 
-  const handleSave = () => {
+  const handleSchemaChange = (schema) => {
     vscode.postMessage({
       type: 'update',
-      body: JSON.stringify(generator.current.getValue(), null, 2)
+      body: JSON.stringify(schema, null, 2)
     });
   }
 
@@ -24,11 +23,6 @@ const App = () => {
       }
     ]));
   }
-
-  useKeyPress(['ctrl.s', 'meta.s'], (e) => {
-    e.preventDefault();
-    handleSave();
-  });
 
   vscode.postMessage({ type: 'init' });
 
@@ -54,15 +48,12 @@ const App = () => {
         key={templates.length}
         ref={generator}
         templates={templates}
+        onSchemaChange={handleSchemaChange}
         extraButtons={[
           {
             text: '存为模板',
             onClick: handleSaveTemplate,
-          },
-          {
-            text: '保存',
-            onClick: handleSave,
-          },
+          }
         ]}
       />
     </div>
