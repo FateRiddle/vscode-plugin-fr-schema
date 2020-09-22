@@ -1,6 +1,7 @@
 .vscode/**
 .vscode-test/**
 node_modules/**
+examples/**
 screenshot/**
 out/**/*.map
 .gitignore

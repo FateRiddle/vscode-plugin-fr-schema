@@ -36,23 +36,10 @@ git clone https://github.com/F-loat/vscode-plugin-fr-schema.git
 
 * 安装依赖
 
-``` sh
-npm install
-```
+  - 全局 `npm install -g umi`
+  - 本地 `npm install`
 
 * 调试插件
 
-使用 VSCode 打开项目，执行 `yarn build`，然后按下 F5 开始调试
+使用 VSCode 打开项目，执行 `yarn dev`，然后按下 F5 开始调试
 
-* 调试页面
-
-开启页面调试配置，并执行 `yarn serve`
-
-``` ts
-// src/extension/frSchemaEditor.ts
-export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
-  // ...
-  private static readonly isDev = true;
-  // ...
-}
-```
