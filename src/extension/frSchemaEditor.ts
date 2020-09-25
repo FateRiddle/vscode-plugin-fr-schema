@@ -64,20 +64,25 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
     });
 
     // Receive message from the webview.
-    webviewPanel.webview.onDidReceiveMessage((e) => {
-      switch (e.type) {
+    webviewPanel.webview.onDidReceiveMessage(async ({ type, body}) => {
+      switch (type) {
         case 'init':
           updateWebview();
           break;
         case 'update':
           this.innerUpdateCount = 0
-          this.updateTextDocument(document, e.body);
+          this.updateTextDocument(document, body);
+          break;
+        case 'close':
+          await this.updateTextDocument(document, body);
+          await document.save();
+          vscode.commands.executeCommand('vscode.openWith', document.uri, 'default');
           break;
         case 'warning':
-          vscode.window.showWarningMessage(e.body);
+          vscode.window.showWarningMessage(body);
           break;
         case 'error':
-          vscode.window.showErrorMessage(e.body);
+          vscode.window.showErrorMessage(body);
           break;
         default:
           break;
@@ -91,7 +96,6 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
   private getHtmlForWebview(webview: vscode.Webview): string {
     const baseUri = `${webview.asWebviewUri(vscode.Uri.file(this.context.extensionPath))}/out/webview`;
 
-    console.log(baseUri)
     return `
       <!DOCTYPE html>
       <html>
@@ -115,7 +119,9 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
   /**
    * Write out the json string to a given document.
    */
-  private updateTextDocument(document: vscode.TextDocument, jsonStr: string) {
+  private updateTextDocument(document: vscode.TextDocument, jsonStr?: string) {
+    if (jsonStr === undefined) return
+
     const edit = new vscode.WorkspaceEdit();
 
     // Just replace the entire document every time.
@@ -127,10 +133,5 @@ export class frSchemaEditorProvider implements vscode.CustomTextEditorProvider {
     );
 
     return vscode.workspace.applyEdit(edit);
-  }
-
-  private handleUnknowFormat(uri: vscode.Uri) {
-    vscode.window.showInformationMessage('Unknown format, switched to default editor.');
-    vscode.commands.executeCommand('vscode.openWith', uri, 'default');
   }
 }
