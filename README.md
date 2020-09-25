@@ -36,8 +36,9 @@ git clone https://github.com/F-loat/vscode-plugin-fr-schema.git
 
 * 安装依赖
 
-  - 全局 `npm install -g umi`
-  - 本地 `npm install`
+``` sh
+npm install
+```
 
 * 调试插件
 
