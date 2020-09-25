@@ -26,15 +26,15 @@
     "commands": [
       {
         "command": "frSchema.gen",
-        "title": "Generate formRender schema from data"
+        "title": "%frSchema.gen.title%"
       },
       {
         "command": "frSchema.p2s",
-        "title": "Generate formRender schema from React PropTypes"
+        "title": "%frSchema.p2s.title%"
       },
       {
         "command": "frSchema.edit",
-        "title": "Open with formRender schema editor",
+        "title": "%frSchema.edit.title%",
         "icon": {
           "light": "./media/edit-light.svg",
           "dark": "./media/edit-dark.svg"
@@ -47,6 +47,13 @@
           "when": "resourceLangId == json",
           "command": "frSchema.edit",
           "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceLangId == json",
+          "command": "frSchema.edit",
+          "group": "1_modification"
         }
       ]
     },

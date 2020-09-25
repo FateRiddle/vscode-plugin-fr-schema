@@ -1,0 +1,5 @@
+{
+	"frSchema.gen.title": "Generate formRender schema from data",
+	"frSchema.p2s.title": "Generate formRender schema from React PropTypes",
+	"frSchema.edit.title": "Open with formRender schema editor"
+}
