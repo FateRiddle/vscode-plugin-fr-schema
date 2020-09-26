@@ -53,7 +53,34 @@
         {
           "when": "resourceLangId == json",
           "command": "frSchema.edit",
-          "group": "1_modification"
+          "group": "1_formrender"
+        },
+        {
+          "when": "resourceLangId == json",
+          "command": "frSchema.gen",
+          "group": "1_formrender"
+        },
+        {
+          "when": "resourceLangId == javascriptreact",
+          "command": "frSchema.p2s",
+          "group": "1_formrender"
+        }
+      ],
+      "explorer/context": [
+        {
+          "when": "resourceLangId == json",
+          "command": "frSchema.edit",
+          "group": "1_formrender"
+        },
+        {
+          "when": "resourceLangId == json",
+          "command": "frSchema.gen",
+          "group": "1_formrender"
+        },
+        {
+          "when": "resourceLangId == javascriptreact",
+          "command": "frSchema.p2s",
+          "group": "1_formrender"
         }
       ]
     },

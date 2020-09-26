@@ -117,7 +117,7 @@ export default class FpDemo extends Component {
     const { bgImage, title, upDate, type, isLike, desArr, num, styleObj } = this.props;
     return (
       <div className="page-wrap">
-        <img src={bgImage} className="image-bg" />
+        <img src={bgImage} className="image-bg" alt="" />
         <Loading show />
         <h3 className="title">{title}</h3>
         <ul className="desc">
