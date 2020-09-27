@@ -19,7 +19,7 @@
   1. 点击右上角的 icon (推荐)
   2. 右键 `.json` 文件，选择 `可视化编辑表单配置` 或 `open with formRender schema editor`（英文编辑器）
 
-- 本插件附带解析 React PropTypes 为表单配置。右键任意 `.jsx` 文件，选择 `解析组件为表单配置`，具体配置方式可查看 [proptypes-to-json-schema](https://github.com/form-render/proptypes-to-json-schema) 文档
+- 本插件附带解析 React PropTypes 为表单配置的功能。右键任意 `.jsx` 文件，选择 `解析组件为表单配置`，具体配置方式可查看 [proptypes-to-json-schema](https://github.com/form-render/proptypes-to-json-schema) 文档
 
 ## 参与插件开发
 
